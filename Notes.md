@@ -10,6 +10,13 @@ jenkins use port 8080
 ## Jenkins job builder  
 Это python-утилита, позволяющая описывать задачи в YAML- или JSON форматах, которые через HTTP API загружаются на сервер. Для работы достаточно установить ее на локальной машине, написать конфигурацию с подключением и описать требуемые задачи.  
 
+## docker compose  
+чтобы запускать команды docker compose в сценариях сборки, надо:  
+- через настройки Jenkins установить плагин 'Docker Compose Build Step Plugin'  
+- добавить пользователя jenkins  в группу  docker:  (sudo)usermod -aG docker jenkins  
+- restart сервер Jenkins  
+
+
 
 
 
