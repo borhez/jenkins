@@ -14,7 +14,17 @@ jenkins use port 8080
 чтобы запускать команды docker compose в сценариях сборки, надо:  
 - через настройки Jenkins установить плагин 'Docker Compose Build Step Plugin'  
 - добавить пользователя jenkins  в группу  docker:  (sudo)usermod -aG docker jenkins  
-- restart сервер Jenkins  
+- restart сервер Jenkins
+
+## ssh in jenkins for github   
+нужны установленные плагины: Git, Publish Over SSH ,  SSH Build Agents plugin  , SSH server  
+в пользователе jenkins сгенерить ключи: su jenkins ; ssh-keygen ;  
+в jenkins/credentials на localhost:8080  заполняем private key, а в github копируем public key  
+для jenkins/job выбираем Git, ссылку на проект GitHub, и выбираем нужный credential.
+также если не соединяется, можно run the following command on the Jenkins server, as the Jenkins user, to get a proper known_hosts file:  
+ssh -T git@github.com  
+
+
 
 
 
