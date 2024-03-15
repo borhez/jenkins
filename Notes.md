@@ -27,6 +27,12 @@ known_hosts file: ssh -T git@github.com
 иначе триггер на гитхаабе срабатывает, отправляет htpp запрос на некий локальный адрес 192.168... и   
 естественно получает код ошибки 50х (проблема со стороны jenkins)   
 - для триггера опроса github задаем расписание: напр, * * * * * , каждую минуту.  
+- триггер remotly, придумываем сами token=TOKEN_NAME для проекта сборки.  
+  Затем в залогиненной сессии пользователя создавшего этот job можем запускать ссылку в браузере:  
+   JENKINS_URL/job/JON_NAME/build?token=TOKEN_NAME ; переход по этой ссылке запускает job  
+  Чтобы передать эту ссылку для curl, нужен apiToken авторизации пользователя. Создать его можно здесь:  
+  http://jenkinsMasterURL/me/configure  ;затем из терминала можно запускать job:
+  curl -u username:apiToken "JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME"
 
 
 
