@@ -17,15 +17,17 @@ jenkins use port 8080
 - restart сервер Jenkins
 
 ## ssh in jenkins for github   
-нужны установленные плагины: Git, Publish Over SSH ,  SSH Build Agents plugin  , SSH server  
+- нужны установленные плагины: Git, Publish Over SSH ,  SSH Build Agents plugin  , SSH server  
 в пользователе jenkins сгенерить ключи: su jenkins ; ssh-keygen ;  
 в jenkins/credentials на localhost:8080  заполняем private key, а в github копируем public key  
 для jenkins/job выбираем Git, ссылку на проект GitHub, и выбираем нужный credential.
 также если не соединяется, можно run the following command on the Jenkins server, as the Jenkins user, to get a proper  
 known_hosts file: ssh -T git@github.com  
-Для автотриггера webhook from github, нужно чтобы сервер jenkins имел ip не локальный (не 192.168...),  
+- Для автотриггера webhook from github, нужно чтобы сервер jenkins имел ip не локальный (не 192.168...),  
 иначе триггер на гитхаабе срабатывает, отправляет htpp запрос на некий локальный адрес 192.168... и   
 естественно получает код ошибки 50х (проблема со стороны jenkins)   
+- для триггера опроса github задаем расписание: напр, H/1 * * * * , каждую минуту.  
+
 
 
 
