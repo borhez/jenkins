@@ -20,7 +20,7 @@ jenkins use port 8080
 - нужны установленные плагины: Git, Publish Over SSH ,  SSH Build Agents plugin  , SSH server  
 в пользователе jenkins сгенерить ключи: su jenkins ; ssh-keygen ;  
 в jenkins/credentials на localhost:8080  заполняем private key, а в github копируем public key  
-для jenkins/job выбираем Git, ссылку на проект GitHub, и выбираем нужный credential.
+для jenkins/job выбираем Git, ссылку на проект GitHub, и выбираем нужный credential.  
 поменять ветку в веб-форме в jenkins т.к. в гитхабе по умолчанию main, а в дженкинсе */master  
 также если не соединяется, можно run the following command on the Jenkins server, as the Jenkins user, to get a proper  
 known_hosts file: ssh -T git@github.com  
@@ -36,6 +36,7 @@ known_hosts file: ssh -T git@github.com
   Чтобы передать эту ссылку для curl, нужен apiToken авторизации пользователя. Создать его можно здесь:  
   http://jenkinsMasterURL/me/configure  ;затем из терминала можно запускать job:
   curl -u username:apiToken "JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME"
+  
 
 
 
