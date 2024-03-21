@@ -4,7 +4,9 @@ pipeline {
 		stage ('run playbook') {
 			steps {
 				echo 'START'
-				sh 'ansible-playbook playbook.yml'
+				dir ('1_test-w-ansible') {
+					sh 'ansible-playbook playbook.yml'
+				}
 				echo 'FINISH'
 			}
 		}
