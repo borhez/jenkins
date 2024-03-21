@@ -1,0 +1,12 @@
+pipeline {
+	agent any
+	stages {
+		stage ('run playbook') {
+			steps {
+				echo 'START'
+				sh 'ansible-playbook playbook.yml'
+				echo 'FINISH'
+			}
+		}
+	}
+}
